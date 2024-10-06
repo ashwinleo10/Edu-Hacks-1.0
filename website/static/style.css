@@ -1,0 +1,75 @@
+body {
+    background-color: #3465be; /* Dark grey background */
+    color: #f0f0f0; /* Light grey text */
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    color: #ffffff; /* White color for headings */
+    text-align: center;
+}
+
+form {
+    background-color: #333333; /* Slightly lighter grey for form background */
+    padding: 30px 70px;
+    border-radius: 8px;
+    width: 300px;
+    margin: 0 auto;
+    height: 400px;
+    margin-top: 100px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 280px;
+    outline: none;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    background-color: #333333; /* Darker grey input fields */
+    color: #ff0000; /* White text inside input fields */
+    font-weight: 900;
+    border-bottom: 1px solid red;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #444444; /* Medium grey for the button */
+    border: none;
+    border-radius: 4px;
+    color: #ff0000; /* White text */
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    
+}
+
+input[type="submit"]:hover {
+    background-color: #555555; /* Slightly lighter on hover */
+}
+
+a {
+    color: #f0f0f0; /* Light grey links */
+    text-decoration: none;
+}
+
+a:hover {
+    font-weight: 500;
+    color: #ff0000; /* White on hover */
+}
+p{
+    text-align: center;
+    margin-top: 40px;
+}
+
+-----
+
+

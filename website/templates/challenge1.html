@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Level {{ 1 }} - Stage {{ 1 }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='challenge1.css') }}">
+</head>
+<body>
+    <h2>Challenge for Level {{ 1}}, Stage {{ 1 }}</h2><br>
+    <h2>"Write a Python function to reverse a string."</h2>
+    
+    <!-- Display the fetched question -->
+    <p>{{ question }}</p>  <!-- This should display the question -->
+
+    <form action="{{ url_for('submit_code') }}" method="POST">
+        <label for="code">Enter your Python code:</label><br>
+        <textarea name="code" rows="10" cols="50"></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+

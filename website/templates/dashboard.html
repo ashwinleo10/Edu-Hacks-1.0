@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style2.css') }}">
+</head>
+<body>
+    <h2>HI, {{ user.username }}!</h2>
+    
+    <!-- Profile Button -->
+    <div id="profile-container">
+        <button id="profile-button">👤</button>
+    </div>
+
+    <!-- User Information Section -->
+    <div id="user-info">
+        <h3>User Information</h3>
+        <p>{{ user.username }}</p>  
+        <p>{{ user.email }}</p>     
+        <form action="{{ url_for('logout') }}" method="POST">
+            <button type="submit" id="logout-button">Logout</button>
+        </form>
+    </div>
+    
+    <div class="content">
+        <!-- Additional dashboard content can go here -->
+        <h1>CODE & CONQUER</h1>
+    </div>
+
+    <div class="content">
+        <div class="levels">
+            <h3>Select a Level:</h3>
+            <button onclick="showChallenges(1)">Level 1</button>
+            <button onclick="showChallenges(2)">Level 2</button>
+            <button onclick="showChallenges(3)">Level 3</button>
+        </div>
+        
+        <div id="challenges" style="display: none;">
+            <!-- Challenges will be displayed here dynamically -->
+        </div>
+        
+        <div id="level1" class="stage" style="display: none;">
+            <h4>Stage 1 (Easy)</h4>
+            <a href="{{ url_for('challenge1') }}">Start Challenge 1</a>
+            <!-- Add more stages as needed -->
+        </div>
+    
+        <div id="level2" class="stage" style="display: none;">
+            <h4>Stage 2 (Medium)</h4>
+            <a href="{{ url_for('challenge2') }}">Start Challenge 2</a>
+            <!-- Add more stages as needed -->
+        </div>
+    
+        <div id="level3" class="stage" style="display: none;">
+            <h4>Stage 3 (Hard)</h4>
+            <a href="{{ url_for('challenge3') }}">Start Challenge 3</a>
+            <!-- Add more stages as needed -->
+        </div>
+    </div>
+    
+
+<div id="challenges" style="display: none;">
+    <!-- Challenges will be displayed here dynamically -->
+</div>
+
+
+    <script>
+        function showStages(level) {
+            // Hide all levels
+            document.querySelectorAll('.stage').forEach(function(stage) {
+                stage.style.display = 'none';
+            });
+            // Show the selected level's stages
+            document.getElementById(level).style.display = 'block';
+        }
+
+
+        function showChallenges(level) {
+            const challengesDiv = document.getElementById('challenges');
+            challengesDiv.style.display = 'block';
+        
+            // Clear previous content
+            challengesDiv.innerHTML = '';
+        
+            // Display challenges based on selected level
+            for (let i = 1; i <= 5; i++) {
+                challengesDiv.innerHTML += `
+                    <div>
+                        <h4>Challenge ${i}</h4>
+                        <p>Details about Challenge ${i} for Level ${level}</p>
+                        <a href="/challenge${i}">Start Challenge ${i}</a>
+                    </div>
+                `;
+            }
+        }
+        
+    </script>
+
+    
+    <script>
+        
+        // Toggle stages display on level button click
+        function toggleStages(levelId) {
+            var stages = document.getElementById(levelId);
+            if (stages.style.display === 'none') {
+                stages.style.display = 'block';
+            } else {
+                stages.style.display = 'none';
+            }
+        }
+
+        document.getElementById('profile-button').onclick = function() {
+            var userInfo = document.getElementById('user-info');
+            if (userInfo.style.display === 'none') {
+                userInfo.style.display = 'block';
+            } else {
+                userInfo.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
